@@ -1,0 +1,41 @@
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+            background-color: #020617;
+        }
+
+        @media (min-width: 1024px) {
+            body { cursor: none; }
+            #cursor { width: 30px; height: 30px; border: 1.5px solid var(--primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out, background 0.3s ease; }
+            #cursor-dot { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease-out; }
+        }
+
+        #vanta-canvas { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+        
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute;
+            width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .profile-ring { border: 2px solid rgba(99, 102, 241, 0.3); border-top-color: var(--primary); animation: spin 8s linear infinite; }
+        
+        #mobile-menu.active { transform: translateX(0); }
